@@ -30,7 +30,7 @@
 | condition_id      | integer    | null: false                    |
 | bear_id           | integer    | null: false                    |
 | area_id           | integer    | null: false                    |
-| number_of_days_id | integer    | null: false                    |
+| number_of_day_id | integer    | null: false                    |
 | price             | integer    | null: false                    |
 | user              | references | null: false, foreign_key: true |
 
@@ -66,9 +66,9 @@
 
 | Column           | Type        | Options                        |
 |-------------------|------------|--------------------------------|
-| post_code         | integer    | null: false                    |
-| prefecture_id     | integer    | null: false,                   |
-| municipalities    | text       | null: false                    |
+| post_code         | string     | null: false                    |
+| prefecture        | string     | null: false,                   |
+| municipalities    | string     | null: false                    |
 | block             | string     | null: false                    |
 | building_name     | string     |                                |
 | phone_number      | string     | null: false                    |
