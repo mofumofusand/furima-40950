@@ -5,13 +5,13 @@
 | Column             | Type    | Options               |
 |--------------------|---------|-----------------------|
 | nickname           | string  | NOT NULL              |
-| email              | string  | NOT NULL, ユニーク制約 |
+| email              | string  | NOT NULL, unique:true |
 | encrypted_password | string  | NOT NULL              |
-| family name        | string  | NOT NULL              |
-| first name         | string  | NOT NULL              |
-| family name(kana)  | string  | NOT NULL              |
-| first name(kana)   | string  | NOT NULL              |
-| date of birth      | integer | NOT NULL              |
+| family_name        | string  | NOT NULL              |
+| first_name         | string  | NOT NULL              |
+| family_name(kana)  | string  | NOT NULL              |
+| first_name(kana)   | string  | NOT NULL              |
+| birthday      | date | NOT NULL              |
 
 
 ### Association
@@ -26,13 +26,13 @@
 |-------------------|------------|--------------------|
 | name              | string     | NOT NULL           |
 | content           | text       | NOT NULL           |
-| category_id       | integer    | NOT NULL, 外部キー |
-| condition_id      | integer    | NOT NULL, 外部キー |
-| bear_id           | integer    | NOT NULL, 外部キー |
-| area_id           | integer    | NOT NULL, 外部キー |
-| number of days_id | integer    | NOT NULL, 外部キー |
+| category_id       | integer    | NOT NULL |
+| condition_id      | integer    | NOT NULL |
+| bear_id           | integer    | NOT NULL |
+| area_id           | integer    | NOT NULL |
+| number of days_id | integer    | NOT NULL |
 | price             | integer    | NOT NULL           |
-| user              | references | NOT NULL, 外部キー |
+| user              | references | NOT NULL, foreign_key: true |
 
 
 ### Association
@@ -50,8 +50,8 @@
 
 | Column  | Type       | Options            |
 |---------|------------|--------------------|
-| user    | references | NOT NULL, 外部キー |
-| item    | references | NOT NULL, 外部キー |
+| user    | references | NOT NULL, foreign_key: true |
+| item    | references | NOT NULL, foreign_key: true |
 
 
 ### Association
@@ -66,12 +66,12 @@
 
 | Column           | Type        | Options            |
 |-------------------|------------|--------------------|
-| post code         | integer    | NOT NULL           |
+| post_code         | integer    | NOT NULL           |
 | prefecture_id     | integer    | NOT NULL, 外部キー |
 | municipalities    | text       | NOT NULL           |
 | block             | string     | NOT NULL           |
-| building name     | string     | NOT NULL           |
-| phone number      | integer    | NOT NULL           |
+| building_name     | string     |            |
+| phone_number      | string    | NOT NULL           |
 | buy               | references | NOT NULL, 外部キー |
 
 ### Association
