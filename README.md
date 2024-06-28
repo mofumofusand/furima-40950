@@ -64,15 +64,15 @@
 
 ## addresses
 
-| Column           | Type        | Options                        |
-|-------------------|------------|--------------------------------|
-| post_code         | string     | null: false                    |
-| prefecture        | string     | null: false,                   |
-| area_id           | integer     | null: false                    |
-| block             | string     | null: false                    |
-| building_name     | string     |                                |
-| phone_number      | string     | null: false                    |
-| buy               | references | null: false, foreign_key: true |
+| Column         | Type       | Options                        |
+|----------------|------------|--------------------------------|
+| post_code      | string     | null: false                    |
+| area_id        | integer    | null: false,                   |
+| municipalities | string     | null: false                    |
+| block          | string     | null: false                    |
+| building_name  | string     |                                |
+| phone_number   | string     | null: false                    |
+| buy            | references | null: false, foreign_key: true |
 
 ### Association
 
