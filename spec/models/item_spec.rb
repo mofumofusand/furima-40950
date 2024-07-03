@@ -28,27 +28,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Content can't be blank")
       end
       it 'category_idが空では出品できない' do
-        @item.category_id = ''
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'condition_idが空では出品できない' do
-        @item.condition_id = ''
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it 'bear_idが空では出品できない' do
-        @item.bear_id = ''
+        @item.bear_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Bear can't be blank")
       end
       it 'area_idが空では出品できない' do
-        @item.area_id = ''
+        @item.area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Area can't be blank")
       end
       it 'number_of_day_idが空では出品できない' do
-        @item.number_of_day_id = ''
+        @item.number_of_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Number of day can't be blank")
       end
@@ -84,7 +84,6 @@ RSpec.describe Item, type: :model do
       end
       it 'user_idに紐付いてないと出品できない' do
         @item.user = nil
-        binding.pry
         @item.valid?
         expect(@item.errors.full_messages).to include("User must exist")
       end

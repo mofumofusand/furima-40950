@@ -8,8 +8,8 @@ function input() {
 
     const profit = document.getElementById("profit");
     profit.innerHTML = Math.floor(inputValue - addTaxDom.innerHTML)
-    console.log(inputValue);
   })
 };
 
 window.addEventListener('turbo:render', input)
+window.addEventListener('turbo:load', input)

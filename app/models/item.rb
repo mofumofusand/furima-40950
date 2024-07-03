@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   validates :content, presence: true
   validates :image, presence: true
 
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, only_integer: true }
 
   
 end
