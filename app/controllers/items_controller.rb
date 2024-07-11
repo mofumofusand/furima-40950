@@ -22,7 +22,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-
+    if @item.buy
+      redirect_to root_path
+    end
   end
 
   def update
@@ -34,6 +36,7 @@ class ItemsController < ApplicationController
 
 
   def show
+   
   end
 
   def destroy
@@ -68,5 +71,6 @@ class ItemsController < ApplicationController
       redirect_to action: :index
     end
   end
+
 end
 
