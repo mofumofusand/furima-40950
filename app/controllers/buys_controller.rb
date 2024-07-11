@@ -1,8 +1,8 @@
 class BuysController < ApplicationController
   before_action :authenticate_user!, only: :index
+  before_action :set_params, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     if (current_user.id != @item.user_id) && (@item.buy == nil)
       gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
       @buy_address = BuyAddress.new
@@ -13,7 +13,6 @@ class BuysController < ApplicationController
 
   def create
     @buy_address = BuyAddress.new(buy_params)
-    @item = Item.find(params[:item_id])
     if @buy_address.valid?
       pay_item
       @buy_address.save
@@ -28,6 +27,10 @@ class BuysController < ApplicationController
 
   def buy_params
     params.require(:buy_address).permit(:post_code, :area_id, :municipalities, :block, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+  end
+
+  def set_params
+    @item = Item.find(params[:item_id])
   end
 
   def pay_item
